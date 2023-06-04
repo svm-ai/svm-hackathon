@@ -19,8 +19,6 @@ import glob
 
 import esm
 
-print(" I m here 1")
-
 torch.set_grad_enabled(False)
 
 # This is an efficient way to delete lowercase characters and insertion characters from a string
@@ -44,7 +42,7 @@ def read_msa(filename: str) -> List[Tuple[str, str]]:
 
 #folders=glob.glob("/p/haicluster/msa_embeddings/*")
 #folders[]
-print(" I m here 2")
+
 # Select sequences from the MSA to maximize the hamming distance
 # Alternatively, can use hhfilter 
 def greedy_select(msa: List[Tuple[str, str]], num_seqs: int, mode: str = "max") -> List[Tuple[str, str]]:
@@ -70,24 +68,17 @@ def greedy_select(msa: List[Tuple[str, str]], num_seqs: int, mode: str = "max") 
     return [msa[idx] for idx in indices]
 
     
-print(" I m here 3")
+
 msa_transformer, msa_transformer_alphabet = esm.pretrained.esm_msa1b_t12_100M_UR50S()
 msa_transformer = msa_transformer.eval().cuda()
 msa_transformer_batch_converter = msa_transformer_alphabet.get_batch_converter()
 
+msas['A0A0A0B5Q0']=read_msa(f"A0A0A0B5Q0.a3m")
 
-print(" I m here 4")
-
-msas={}
-
-msas['A0A1S8Y494']=read_msa(f"/p/haicluster/data_openfold/A0A1S8Y494/a3m/uniclust30.a3m")
-print(" I m here 5")
 
 msa_transformer_predictions = {}
 msa_transformer_predictions_no_contacts = {}
 msa_transformer_results = []
-
-print(" I m here 5")
 
 for name, inputs in msas.items():
     inputs = greedy_select(inputs, num_seqs=128) # can change this to pass more/fewer sequences
@@ -97,5 +88,3 @@ for name, inputs in msas.items():
     temp=temp[12][:,:,0,:]
     temp=torch.mean(temp,(0,1))
     print(temp)
-
-print(" I m here 6")
