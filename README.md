@@ -2,7 +2,8 @@
 
 [🤗 Visualization](https://huggingface.co/spaces/BIOML-SVM/SVM)
 
-ML-Driven Bioinformatics for Protein Mutation Analysis
+## ML-Driven Bioinformatics for Protein Mutation Analysis
+
 This repository contains the source code and resources for our bioinformatics project aimed at identifying how gene/protein mutations alter function and which mutations can be pathogenic. Our approach is ML-driven and utilizes a multimodal contrastive learning framework, inspired by the ImageBind model by MetaAI.
 
 ## Project Goal
@@ -30,6 +31,7 @@ Clone the repository and install the necessary dependencies. Note that we will a
 
 
 ## Contributing
+
 Contributions are welcome! Please read the contributing guidelines before getting started.
 
 ## License
