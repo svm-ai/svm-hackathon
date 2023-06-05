@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd 
 import numpy as np
 from tqdm import tqdm 
 import os
@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, util
 
 model_name = 'output/facebook-esm2_t12_35M_UR50D-v0/'
 model = SentenceTransformer(model_name)
-print("Max Sequence Length:", model.max_seq_length)
+print(f"Max Sequence Length: {model.max_seq_length}")
 
 df_test_name = 'esnpgo-seq-cleaned-test.csv'
 df_test = pd.read_csv(f'data/{df_test_name}')
@@ -26,11 +26,11 @@ for df_i in tqdm(np.array_split(df_test, n_batches), total=n_batches):
     embeddings1 = model.encode(sentences1, convert_to_tensor=True)
     embeddings2 = model.encode(sentences2, convert_to_tensor=True)
 
-    cosine_scores += [util.cos_sim(emb1, emb2)[0][0].cpu().numpy() 
-                         for emb1, emb2 in zip(embeddings1, embeddings2)]
+    cosine_scores += [util.cos_sim(emb1, emb2)[0][0].cpu().numpy()  
+                        for emb1, emb2 in zip(embeddings1, embeddings2)]
 
 df_test[f'cosine-{model_name}'] = cosine_scores
-df_test.to_csv(f'data/{os.path.splitext(df_test_name)[0]}-mutidx_cut={mut_idx_cutoff}-pred.csv')
+df_test.to_csv(f'data/{os.path.splitext(df_test_name)[0]}-mutidx_cut={mut_idx_cutoff}-pred.csv') 
 
 # test_samples = []
 # for i, row in tqdm(df_test.iterrows(), total=df_test.shape[0]):
