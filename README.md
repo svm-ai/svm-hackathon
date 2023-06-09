@@ -1,6 +1,7 @@
 # ProteinBind
 
-[🤗 Visualization](https://huggingface.co/spaces/BIOML-SVM/SVM)
+[![View on GitHub](https://img.shields.io/badge/-View%20on%20GitHub-000?style=flat&logo=github&logoColor=white&link=https://github.com/svm-ai/svm-hackathon)](https://github.com/svm-ai/svm-hackathon)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/BIOML-SVM/SVM)
 
 ## ML-Driven Bioinformatics for Protein Mutation Analysis
 
