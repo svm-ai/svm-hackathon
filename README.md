@@ -35,4 +35,4 @@ Contributions are welcome! Please read the contributing guidelines before gettin
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the Attribution-NonCommercial-ShareAlike 4.0 International.
